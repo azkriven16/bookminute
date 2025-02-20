@@ -20,7 +20,7 @@ export default function BlogCard(blog: Post & { author: Author }) {
     return (
         <Card
             className="flex flex-col cursor-pointer transition-all duration-300 hover:scale-[1.01] hover:shadow-lg"
-            onClick={() => router.push(`/blog/${blog.id}`)}
+            onClick={() => router.push(`/blog?id=${blog.id}`)}
         >
             <CardHeader>
                 <div className="flex items-center justify-between mb-2">
