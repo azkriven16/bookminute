@@ -12,7 +12,7 @@ model Post {
   title     String
   slug      String    @unique
   excerpt   String
-  content   String    // Stores MDX content as a string
+  content   Json   
   categories  Category[]
   authorId  String    @db.ObjectId
   author    Author    @relation(fields: [authorId], references: [id])

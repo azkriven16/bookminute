@@ -7,7 +7,6 @@ export default async function Home() {
             author: true,
         },
     });
-    console.log(posts);
     return (
         <main className="max-w-6xl mx-auto p-6 space-y-6">
             <h1 className="font-black text-3xl">BookMinute</h1>
