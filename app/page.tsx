@@ -6,7 +6,7 @@ import { Author, Post } from "@prisma/client";
 export default async function Home({
     searchParams,
 }: {
-    searchParams: { category?: string };
+    searchParams: Promise<{ [key: string]: string | undefined }>;
 }) {
     const params = await searchParams;
 
