@@ -4,7 +4,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 export default function SkeletonLoader() {
     return (
         <div className="max-w-6xl mx-auto p-6 space-y-6 min-h-screen">
-            <h1 className="font-black text-3xl">BookMinute</h1> 
+            <h1 className="font-black text-3xl">BookMinute</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {Array.from({ length: 4 }).map((_, index) => (
                     <Card key={index} className="p-4 space-y-4">
