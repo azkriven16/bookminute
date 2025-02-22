@@ -8,7 +8,9 @@ interface HomeProps {
 }
 
 export default async function Home({ searchParams }: HomeProps) {
-    const category = searchParams.category?.toLowerCase();
+    const params = await searchParams;
+
+    const category = params?.category?.toLowerCase();
 
     let posts: (Post & { author: Author })[] = [];
 
