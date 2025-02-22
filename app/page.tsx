@@ -4,11 +4,12 @@ import { prisma } from "@/lib/prisma";
 import { Author, Post, Category } from "@prisma/client";
 
 interface HomeProps {
-    searchParams?: { category?: string };
+    searchParams: Record<string, string | undefined>;
 }
 
 export default async function Home({ searchParams }: HomeProps) {
-    const category = searchParams?.category;
+    const category = searchParams.category as Category | undefined; // Ensure proper type
+
     let posts: (Post & { author: Author })[] = [];
 
     try {
@@ -16,7 +17,7 @@ export default async function Home({ searchParams }: HomeProps) {
             where: category
                 ? {
                       categories: {
-                          has: category as Category,
+                          has: category,
                       },
                   }
                 : {},
