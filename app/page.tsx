@@ -1,18 +1,26 @@
 import BlogCard from "@/components/BlogCard";
 import BlogCategories from "@/components/BlogCategories";
 import { prisma } from "@/lib/prisma";
-import { Author, Post } from "@prisma/client";
+import { Author, Post, Category } from "@prisma/client";
 
 export default async function Home({
     searchParams,
 }: {
-    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+    searchParams: { category?: string };
 }) {
-    const blogCategory = await searchParams;
+    const { category } = searchParams;
 
     let posts: (Post & { author: Author })[] = [];
+
     try {
         posts = await prisma.post.findMany({
+            where: category
+                ? {
+                      categories: {
+                          has: category as Category,
+                      },
+                  }
+                : {},
             include: { author: true },
         });
     } catch (error) {
@@ -21,7 +29,7 @@ export default async function Home({
 
     return (
         <main className="max-w-6xl mx-auto p-6 space-y-6 min-h-screen">
-            <BlogCategories category={blogCategory.category as string} />
+            <BlogCategories category={category ?? ""} />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {posts.length > 0 ? (
