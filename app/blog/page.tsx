@@ -42,7 +42,7 @@ export default async function Page({
                 </Button>
             </Link>
 
-            <article className="prose lg:prose-xl">
+            <article className="prose lg:prose-xl dark:prose-invert">
                 <Mdx source={mdxSource} />
             </article>
         </div>

@@ -18,7 +18,7 @@ export default function Footer() {
                 </nav>
                 <div className="flex gap-x-2 mt-10 md:mt-0">
                     <BookAudio className="size-10" />
-                    <h1 className="font-black text-3xl">Audiobook Blogs</h1>
+                    <h1 className="font-black text-3xl">BookMinute</h1>
                 </div>
             </div>
         </footer>
