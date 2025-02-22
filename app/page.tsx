@@ -3,13 +3,12 @@ import BlogCategories from "@/components/BlogCategories";
 import { prisma } from "@/lib/prisma";
 import { Author, Post, Category } from "@prisma/client";
 
-export default async function Home({
-    searchParams,
-}: {
-    searchParams: { category?: string };
-}) {
-    const { category } = searchParams;
+interface HomeProps {
+    searchParams?: { category?: string };
+}
 
+export default async function Home({ searchParams }: HomeProps) {
+    const category = searchParams?.category;
     let posts: (Post & { author: Author })[] = [];
 
     try {
