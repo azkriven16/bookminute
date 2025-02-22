@@ -3,11 +3,11 @@ import BlogCategories from "@/components/BlogCategories";
 import { prisma } from "@/lib/prisma";
 import { Author, Post, Category } from "@prisma/client";
 
-interface HomeProps {
-    searchParams: { category?: string };
-}
-
-export default async function Home({ searchParams }: HomeProps) {
+export default async function Home({
+    searchParams,
+}: {
+    searchParams: Promise<{ [key: string]: string | undefined }>;
+}) {
     const params = await searchParams;
 
     const category = params?.category?.toLowerCase();
