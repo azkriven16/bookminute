@@ -8,7 +8,12 @@ export default function Navbar() {
             <nav className="max-w-6xl p-6 w-full flex justify-between items-center">
                 <div className="flex gap-4">
                     <Link href="/" passHref>
-                        <BookAudio className="size-10" />
+                        <div className="flex items-center gap-x-1">
+                            <BookAudio className="size-10" />
+                            <h1 className="font-black text-xl md:text-3xl">
+                                BookMinute
+                            </h1>
+                        </div>
                     </Link>
                 </div>
                 <Link href="/create" passHref>
