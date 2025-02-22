@@ -8,6 +8,8 @@ export default async function Home({
 }: {
     searchParams: { category?: string };
 }) {
+    const params = await searchParams;
+
     let posts: (Post & { author: Author })[] = [];
 
     try {
@@ -20,8 +22,8 @@ export default async function Home({
 
     return (
         <main className="max-w-6xl mx-auto p-6 space-y-6 min-h-screen">
-            <BlogCategories category={searchParams.category ?? ""} />
-            <BlogList posts={posts} category={searchParams.category} />
+            <BlogCategories category={params?.category ?? ""} />
+            <BlogList posts={posts} category={params?.category} />
         </main>
     );
 }
